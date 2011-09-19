@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+    <persistence-unit name="personDatabase">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <class>org.springbyexample.sdms.simpleForm.orm.bean.Person</class>
+        <class>org.springbyexample.sdms.simpleForm.orm.bean.Address</class>
+        
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+            <!--
+                Note: setting 'hibernate.hbm2ddl.auto' to 'create' will result in
+                'import.sql' (in the root of the classpath) being used to populate
+                the DB
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
+        </properties>
+    </persistence-unit>
+</persistence>

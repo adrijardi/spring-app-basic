@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+sourceCompatibility = 1.6
+
+repositories {
+	mavenRepo urls: 'http://download.java.net/maven/2'
+	mavenRepo urls: 'http://repository.jboss.org/maven2'
+	mavenCentral()
+}
+
+configurations {
+	compile
+	runtime
+	all*.exclude group: 'commons-logging' // this is where we exclude
+}
+
+task deployToTomcat(dependsOn: 'war') << {
+	copy {
+		from war.archivePath
+		into "/Users/adri/apache-tomcat-7.0.21/webapps"
+	}
+}
+
+dependencies {
+	runtime group: 'jstl', name: 'jstl', version: '1.2'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final'
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '3.0.6.RELEASE'
+	compile group: 'org.springframework', name: 'spring-orm', version: '3.0.6.RELEASE'
+	compile group: 'org.springframework', name: 'spring-tx', version: '3.0.6.RELEASE'
+	compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.6.1'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.6.'
+	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.6.1'
+	compile group: 'log4j', name: 'log4j', version: '1.2.16'
+	compile group: 'hsqldb', name: 'hsqldb', version: '1.8.0.10'
+
+	providedCompile group: 'javax', name: 'javaee-web-api', version: '6.0'
+	
+	providedCompile group: 'taglibs', name: 'c', version: '1.1.2'
+	providedCompile group: 'taglibs', name: 'fmt', version: '1.1.2'
+
+	testCompile group: 'junit', name: 'junit', version: '4.+'
+}
