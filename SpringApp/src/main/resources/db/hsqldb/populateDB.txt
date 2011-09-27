@@ -1,0 +1,2 @@
+INSERT INTO person VALUES (1, 'Adrian', 'Lopez');
+INSERT INTO person VALUES (2, 'Paco', 'Pil');

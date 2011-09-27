@@ -13,6 +13,9 @@
        http://www.springframework.org/schema/mvc
 	   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<!-- import the dataSource definition -->
+    <import resource="app-context-dataSource.xml"/>
+    
 	<context:component-scan base-package="adri.springapp" />
 	
 	<mvc:annotation-driven />
