@@ -5,9 +5,8 @@
              version="1.0">
     <persistence-unit name="personDatabase">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-
-        <class>org.springbyexample.sdms.simpleForm.orm.bean.Person</class>
-        <class>org.springbyexample.sdms.simpleForm.orm.bean.Address</class>
+		
+		<class>adri.springapp.Person</class>
         
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />

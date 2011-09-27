@@ -10,7 +10,7 @@ public class Person {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -18,11 +18,11 @@ public class Person {
 	@Column(name="last_name")
 	private String lastName;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

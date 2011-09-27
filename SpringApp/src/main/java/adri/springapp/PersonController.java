@@ -70,7 +70,7 @@ public class PersonController {
      * 
      * <p>Expected HTTP GET and request '/person/search'.</p>
      */
-    @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(value="/person/search", method=RequestMethod.GET)
     public @ModelAttribute(SEARCH_MODEL_KEY) Collection<Person> search() {
         return personDao.findPersons();
     }
